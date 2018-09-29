@@ -98,8 +98,8 @@
 		</plugins>
 	</build>
   
-  <name>chyme</name>
-  <artifactId>chyme</artifactId>
+  <name>imooc-videos-dev-mini-api</name>
+  <artifactId>imooc-videos-dev-mini-api</artifactId>
   
   <dependencies>
   	<dependency>
