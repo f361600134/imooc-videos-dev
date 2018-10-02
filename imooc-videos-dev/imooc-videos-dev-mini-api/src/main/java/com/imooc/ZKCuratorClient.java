@@ -97,6 +97,7 @@ public class ZKCuratorClient {
 					String filePath = ResourceConfig.fileSpace + songPath;
 					
 					// 3. 定义下载的路径（播放url）
+					//String arrPath[] = songPath.split("\\\\");
 					String arrPath[] = songPath.split("/");
 					String finalPath = "";
 					// 3.1 处理url的斜杠以及编码

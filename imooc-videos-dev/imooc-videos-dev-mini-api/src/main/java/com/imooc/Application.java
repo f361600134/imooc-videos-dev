@@ -10,10 +10,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 @MapperScan(basePackages="com.imooc.mapper")
 @ComponentScan(basePackages= {"com.imooc", "org.n3r.idworker"})
 public class Application {
-	
-	//Edit by Chyme
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
-	
 }
