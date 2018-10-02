@@ -14,10 +14,10 @@ public class BasicController {
 	public static final String USER_REDIS_SESSION = "user-redis-session";
 	
 	// 文件保存的命名空间
-	public static final String FILE_SPACE = "/home/imooc_videos_dev";
+//	public static final String FILE_SPACE = "/home/imooc_videos_dev";
 	
 	// ffmpeg所在目录
-	public static final String FFMPEG_EXE = "/usr/bin/ffmpeg";
+//	public static final String FFMPEG_EXE = "/usr/bin/ffmpeg";
 	
 	// 每页分页的记录数
 	public static final Integer PAGE_SIZE = 5;

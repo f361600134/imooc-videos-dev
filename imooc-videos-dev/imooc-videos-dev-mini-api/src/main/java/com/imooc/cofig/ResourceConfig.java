@@ -2,33 +2,38 @@ package com.imooc.cofig;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 @ConfigurationProperties(prefix="com.imooc")
-@PropertySource("classpath:resource.properties")
 public class ResourceConfig {
 
-	private String zookeeperServer;
-	private String bgmServer;
-	private String fileSpace;
+	public static String zookeeperServer;
+	public static String bgmServer;
+	public static String fileSpace;
+	public static String ffmpegSpace;
 
-	public String getZookeeperServer() {
-		return zookeeperServer;
+//	public String getFfmpegSpace() {
+//		return ffmpegSpace;
+//	}
+	public void setFfmpegSpace(String ffmpegSpace) {
+		ResourceConfig.ffmpegSpace = ffmpegSpace;
 	}
+//	public String getZookeeperServer() {
+//		return zookeeperServer;
+//	}
 	public void setZookeeperServer(String zookeeperServer) {
-		this.zookeeperServer = zookeeperServer;
+		ResourceConfig.zookeeperServer = zookeeperServer;
 	}
-	public String getBgmServer() {
-		return bgmServer;
-	}
+//	public String getBgmServer() {
+//		return bgmServer;
+//	}
 	public void setBgmServer(String bgmServer) {
-		this.bgmServer = bgmServer;
+		ResourceConfig.bgmServer = bgmServer;
 	}
-	public String getFileSpace() {
-		return fileSpace;
-	}
+//	public String getFileSpace() {
+//		return fileSpace;
+//	}
 	public void setFileSpace(String fileSpace) {
-		this.fileSpace = fileSpace;
+		ResourceConfig.fileSpace = fileSpace;
 	}
 }
