@@ -16,7 +16,6 @@ import org.apache.curator.framework.recipes.cache.PathChildrenCacheListener;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.imooc.cofig.ResourceConfig;
@@ -35,8 +34,8 @@ public class ZKCuratorClient {
 	
 //	public static final String ZOOKEEPER_SERVER = "192.168.1.210:2181";
 	
-	@Autowired
-	private ResourceConfig resourceConfig;
+//	@Autowired
+//	private ResourceConfig resourceConfig;
 	
 	public void init() {
 		
@@ -47,7 +46,7 @@ public class ZKCuratorClient {
 		// 重试策略
 		RetryPolicy retryPolicy = new ExponentialBackoffRetry(1000, 5);
 		// 创建zk客户端
-		client = CuratorFrameworkFactory.builder().connectString(resourceConfig.getZookeeperServer())
+		client = CuratorFrameworkFactory.builder().connectString(ResourceConfig.zookeeperServer)
 				.sessionTimeoutMs(10000).retryPolicy(retryPolicy).namespace("admin").build();
 		// 启动客户端
 		client.start();
@@ -95,10 +94,10 @@ public class ZKCuratorClient {
 					
 					// 2. 定义保存到本地的bgm路径
 //					String filePath = "C:\\imooc_videos_dev" + songPath;
-					String filePath = resourceConfig.getFileSpace() + songPath;
+					String filePath = ResourceConfig.fileSpace + songPath;
 					
 					// 3. 定义下载的路径（播放url）
-					String arrPath[] = songPath.split("\\\\");
+					String arrPath[] = songPath.split("/");
 					String finalPath = "";
 					// 3.1 处理url的斜杠以及编码
 					for(int i = 0; i < arrPath.length ; i ++) {
@@ -108,7 +107,7 @@ public class ZKCuratorClient {
 						}
 					}
 //					String bgmUrl = "http://192.168.1.2:8080/mvc" + finalPath;
-					String bgmUrl = resourceConfig.getBgmServer() + finalPath;
+					String bgmUrl = ResourceConfig.bgmServer + finalPath;
 					
 					if (operatorType.equals(BGMOperatorTypeEnum.ADD.type)) {
 						// 下载bgm到spingboot服务器
